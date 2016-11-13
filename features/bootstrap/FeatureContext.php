@@ -1,5 +1,6 @@
 <?php
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
@@ -19,5 +20,13 @@ class FeatureContext extends MinkContext
      */
     public function __construct()
     {
+    }
+
+    /**
+     * @Given I am on admin dashboard
+     */
+    public function iAmOnAdminDashboard()
+    {
+        $this->visitPath('/admin');
     }
 }
