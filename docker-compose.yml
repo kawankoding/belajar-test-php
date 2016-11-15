@@ -6,7 +6,20 @@ services:
       - .:/var/www/html
     ports:
       - 8000:80
+    environment:
+      - DATABASE_DRIVER=mysql
+      - DATABASE_HOST=db
+      - DATABASE_NAME=belajartest
+      - DATABASE_USER=belajartest
+      - DATABASE_PASSWORD=passwordbelajartest
   selenium:
     image: selenium/standalone-chrome-debug:2.53.1
     ports:
       - 15900:5900
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwordtidakaman
+      - MYSQL_DATABASE=belajartest
+      - MYSQL_USER=belajartest
+      - MYSQL_PASSWORD=passwordbelajartest

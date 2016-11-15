@@ -1,3 +1,4 @@
 .git
 /behat.yml
 /vendor
+/phinx.yml
