@@ -1,0 +1,21 @@
+image: docker:latest
+
+# When using dind, it's wise to use the overlayfs driver for
+# improved performance.
+variables:
+  DOCKER_DRIVER: overlay
+
+services:
+- docker:dind
+
+before_script:
+- docker info
+- docker-compose version
+
+build:
+  stage: build
+  script:
+  - docker-compose build
+  - docker-compose run -d; sleep 5;
+  - docker-compose ps
+
